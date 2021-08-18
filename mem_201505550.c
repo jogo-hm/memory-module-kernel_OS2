@@ -41,7 +41,7 @@ static int memory_proc_open(struct inode *inode, struct file *file)
     return single_open(file, getmemory, NULL);
 }
 
-static const struct file_operations memory_proc_fops = {
+static const struct proc_ops memory_proc_fops = {
     .owner = THIS_MODULE,
     .open = memory_proc_open,
     .read = seq_read,
@@ -53,7 +53,7 @@ static const struct file_operations memory_proc_fops = {
 static int __init memory_init(void)
 {
     struct proc_dir_entry *entry;
-    entry = proc_create("ram-monitor", 0, NULL, &memory_proc_fops);
+    entry = proc_create("momory-monitor", 0, NULL, &memory_proc_fops);
 
     if(!entry){
         return -1;
@@ -68,7 +68,7 @@ static int __init memory_init(void)
 static void __exit memory_exit(void)
 {
     
-    remove_proc_entry("ram-monitor", NULL);
+    remove_proc_entry("momory-monitor", NULL);
     printk(KERN_INFO "adios_201505550 \n");
     
 }
