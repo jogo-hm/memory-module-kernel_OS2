@@ -27,11 +27,11 @@ static int getmemory(struct seq_file *m, void *v)
         for (lru = LRU_BASE; lru < NR_LRU_LISTS; lru++){
             pages[lru] = global_numa_state(NR_LRU_BASE + lru);
         }       
-        seq_printf(m, "***************MEMORIA*******************");
-        seq_printf(m, "TOTAL: %8lu,",K(i.totalram)/1024);
-        seq_printf(m, "LIBRE: %8lu,",K(i.freeram)/1024);
-        seq_printf(m, "USADA: %8lu,",(K(i.totalram)-K(i.freeram)-K(i.bufferram))/1024);
-        seq_printf(m, "****************END**********************");
+        seq_printf(m, "***************MEMORIA*******************\n");
+        seq_printf(m, "TOTAL: %8lu,",K(i.totalram)/1024, "\n");
+        seq_printf(m, "LIBRE: %8lu,",K(i.freeram)/1024, \n);
+        seq_printf(m, "USADA: %8lu,",(K(i.totalram)-K(i.freeram)-K(i.bufferram))/1024, "\n");
+        seq_printf(m, "****************END**********************\n");
     #undef K
     return 0;
 }
@@ -52,7 +52,7 @@ static const struct proc_ops memory_proc_fops = {
 static int __init memory_init(void)
 {
     struct proc_dir_entry *entry;
-    entry = proc_create("momory-monitor", 0, NULL, &memory_proc_fops);
+    entry = proc_create("mem_201505550", 0, NULL, &memory_proc_fops);
 
     if(!entry){
         return -1;
@@ -67,7 +67,7 @@ static int __init memory_init(void)
 static void __exit memory_exit(void)
 {
     
-    remove_proc_entry("momory-monitor", NULL);
+    remove_proc_entry("mem_201505550", NULL);
     printk(KERN_INFO "adios_201505550 \n");
     
 }
