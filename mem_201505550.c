@@ -29,7 +29,7 @@ static int getmemory(struct seq_file *m, void *v)
         }       
         seq_printf(m, "***************MEMORIA*******************\n");
         seq_printf(m, "TOTAL: %8lu,",K(i.totalram)/1024, "\n");
-        seq_printf(m, "LIBRE: %8lu,",K(i.freeram)/1024, \n);
+        seq_printf(m, "LIBRE: %8lu,",K(i.freeram)/1024, "\n");
         seq_printf(m, "USADA: %8lu,",(K(i.totalram)-K(i.freeram)-K(i.bufferram))/1024, "\n");
         seq_printf(m, "****************END**********************\n");
     #undef K
