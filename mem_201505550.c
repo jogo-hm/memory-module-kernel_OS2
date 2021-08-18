@@ -28,9 +28,9 @@ static int getmemory(struct seq_file *m, void *v)
             pages[lru] = global_numa_state(NR_LRU_BASE + lru);
         }       
         seq_printf(m, "\n***************MEMORIA*******************\n");
-        seq_printf(m, "TOTAL: %8lu, kB\n",K(i.totalram));
-        seq_printf(m, "LIBRE: %8lu, kB\n",K(i.freeram));
-        seq_printf(m, "USADA: %8lu, kB\n",K(i.totalram)-K(i.freeram)-K(i.bufferram));
+        seq_printf(m, "TOTAL: %8lu kB\n",K(i.totalram));
+        seq_printf(m, "LIBRE: %8lu kB\n",K(i.freeram));
+        seq_printf(m, "USADA: %8lu kB\n",K(i.totalram)-K(i.freeram)-K(i.bufferram));
         seq_printf(m, "****************END**********************\n\n");
     #undef K
     return 0;
