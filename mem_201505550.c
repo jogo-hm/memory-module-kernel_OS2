@@ -42,7 +42,6 @@ static int memory_proc_open(struct inode *inode, struct file *file)
 }
 
 static const struct proc_ops memory_proc_fops = {
-    .proc_owner = THIS_MODULE,
     .proc_open = memory_proc_open,
     .proc_read = seq_read,
     .proc_lseek = seq_lseek,
